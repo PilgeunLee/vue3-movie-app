@@ -75,6 +75,8 @@ export default {
                     number: this.number,
                     year: this.year
                 })
+
+                //store Murations 실행할때는 .commit() Actions를 실행할때는 .dispatch 매서드 실행 
                 // const OMDB_API_KEY = '7035c60c'
                 // const res = await axios.get(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${this.title}&type=${this.type}&y=${this.year}&page=1`)
                 // console.log(res)
