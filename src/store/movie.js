@@ -35,9 +35,13 @@ export default {
      //비동기
      actions:{
         async searchMovies({state, commit}, payload) {
-         commit('updateState',{
-            message:''
+            if (state.loading) return
+            
+          commit('updateState',{
+            message:'',
+            loading: true
          })   
+
          try{ 
         const OMDB_API_KEY = '7035c60c'
         const res = await _fetchMovie({
@@ -74,6 +78,10 @@ export default {
             commit('updateState',{
                 movies:[],
                 message
+            })
+         } finally {
+            commit('updateState', {
+                loading : false
             })
          }
 
